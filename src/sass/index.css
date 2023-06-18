@@ -1,0 +1,110 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+.logo {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  text-align: left;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.2;
+  padding: 9px 12px 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.logo-svg {
+  fill: #333;
+}
+
+.logo:hover .logo-svg {
+  fill: aquamarine;
+}
+
+.logo__text {
+  font-family: Open Sans, Arial, sans-serif;
+  display: block;
+  color: #555;
+}
+
+.logo:hover .logo__text {
+  color: aquamarine;
+}
+
+.logo:hover {
+  border-color: aquamarine;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.disable-js {
+  display: none;
+}
+
+.search-form {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  min-width: 768px;
+  justify-content: center;
+  background-color: rgb(255, 128, 128);
+  padding: 20px 0;
+}
+
+.search-form__input {
+  display: block;
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  outline: none;
+  border-color: transparent;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.search-form__button {
+  display: block;
+  box-sizing: border-box;
+  font-size: 16px;
+  width: 70px;
+  height: 40px;
+  border-color: transparent;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.search-form__button:hover {
+  background-color: aquamarine;
+}
+
+.search-form__button:active {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.load-more {
+  display: block;
+  width: 100px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: #555;
+}
+
+.load-more:hover {
+  background-color: aquamarine;
+}
+
+.gallery {
+  padding-top: 80px;
+  overflow-y: auto;
+  height: 100vh;
+  padding-bottom: 20px;
+}
+
+.gallery__item:last-of-type {
+  padding-bottom: 20px;
+}/*# sourceMappingURL=index.css.map */

@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <title>Image search</title>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <!--Form------------------------------------->
+    <form class="search-form" id="search-form">
+      <!--Logo------------------------------------->
+      <a class="logo" href="https://pixabay.com">
+        <svg class="logo-svg" width="70px" height="18px">
+          <use href="./images/logo.svg#logo-svg"></use>
+        </svg>
+        <span class="logo__text">Free images</span>
+      </a>
+      <!--Logo------------------------------------->
+      <input
+        class="search-form__input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button class="search-form__button" type="submit" name="searchButton">
+        Search
+      </button>
+    </form>
+    <!--Form------------------------------------->
+
+    <!--Gallery---------------------------------->
+    <div class="gallery">
+      <!-- Картки зображень -->
+
+      <!--Button more------------------------------>
+      <button class="load-more" type="button" name="moreButton">
+        Load more
+      </button>
+      <!--Button more------------------------------>
+    </div>
+
+    <!--Gallery---------------------------------->
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

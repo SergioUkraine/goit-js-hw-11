@@ -1,0 +1,34 @@
+.logo {
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 9px 12px 9px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.logo-svg{
+    fill:#333;
+}
+
+.logo:hover .logo-svg {
+    fill: aquamarine;
+}
+
+.logo__text{
+    font-family: Open Sans, Arial, sans-serif;
+    display: block;
+    color: #555;
+}
+
+.logo:hover .logo__text{
+    color:aquamarine;
+}
+
+.logo:hover{
+    border-color: aquamarine;
+}
