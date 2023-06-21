@@ -7,41 +7,39 @@
     <title>Image search</title>
   </head>
   <body>
-    <!--Form------------------------------------->
-    <form class="search-form" id="search-form">
-      <!--Logo------------------------------------->
-      <a class="logo" href="https://pixabay.com">
-        <svg class="logo-svg" width="70px" height="18px">
-          <use href="./images/logo.svg#logo-svg"></use>
-        </svg>
-        <span class="logo__text">Free images</span>
-      </a>
-      <!--Logo------------------------------------->
-      <input
-        class="search-form__input"
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button class="search-form__button" type="submit" name="searchButton">
-        Search
-      </button>
-    </form>
-    <!--Form------------------------------------->
+    <header class="header">
+      <form class="header__form" id="search-form">
+        <a class="logo header__logo" href="https://pixabay.com">
+          <svg class="logo__svg" width="70px" height="18px">
+            <use href="./images/logo.svg#logo-svg"></use>
+          </svg>
+          <span class="logo__text">Free images</span>
+        </a>
+        <input
+          class="header__input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="header__button" type="submit" name="searchButton">
+          Search
+        </button>
+      </form>
+    </header>
 
-    <!--Gallery---------------------------------->
     <div class="gallery">
-      <!-- Картки зображень -->
+      <div class="gallery__inner">
 
-      <!--Button more------------------------------>
-      <button class="load-more" type="button" name="moreButton">
+      </div>
+      <button
+        class="gallery__btn-more gallery__btn-more--hidden"
+        type="button"
+        name="moreButton"
+      >
         Load more
       </button>
-      <!--Button more------------------------------>
     </div>
-
-    <!--Gallery---------------------------------->
 
     <script type="module" src="./index.js"></script>
   </body>

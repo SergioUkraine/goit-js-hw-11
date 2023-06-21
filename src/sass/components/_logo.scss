@@ -1,22 +1,23 @@
 .logo {
-    position: absolute;
-    right: 5%;
-    top: 15%;
     text-align: left;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.2;
-    padding: 9px 12px 9px;
+    padding: 6px 9px 6px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.logo-svg{
+.logo:hover {
+    border-color: $accent-color;
+}
+
+.logo__svg{
     fill:#333;
 }
 
-.logo:hover .logo-svg {
-    fill: aquamarine;
+.logo:hover .logo__svg {
+    fill: $accent-color;
 }
 
 .logo__text{
@@ -26,9 +27,5 @@
 }
 
 .logo:hover .logo__text{
-    color:aquamarine;
-}
-
-.logo:hover{
-    border-color: aquamarine;
+    color:$accent-color;
 }
