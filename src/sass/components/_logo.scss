@@ -8,7 +8,8 @@
     border-radius: 5px;
 }
 
-.logo:hover {
+.logo:hover,
+.logo:focus {
     border-color: $accent-color;
 }
 
@@ -16,7 +17,8 @@
     fill:#333;
 }
 
-.logo:hover .logo__svg {
+.logo:hover .logo__svg,
+.logo:focus .logo__svg {
     fill: $accent-color;
 }
 
@@ -26,6 +28,7 @@
     color: #555;
 }
 
-.logo:hover .logo__text{
+.logo:hover .logo__text,
+.logo:focus .logo__text{
     color:$accent-color;
 }

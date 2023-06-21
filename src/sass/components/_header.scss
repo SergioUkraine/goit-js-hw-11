@@ -1,7 +1,7 @@
 .header{
     height: 64px;
     position: fixed;
-    z-index: 9999;
+    z-index: 1;
 }
 
 
@@ -38,7 +38,8 @@
     border-radius: 0px 20px 20px 0px;
 }
 
-.header__button:hover {
+.header__button:hover,
+.header__button:focus {
     background-color: $accent-color;
 }
 
