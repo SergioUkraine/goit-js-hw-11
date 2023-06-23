@@ -24,29 +24,19 @@ Notify.init({
     useIcon: true,
 });
 
-
 refs.form.addEventListener('submit', onSubmit);
 refs.buttonMore.addEventListener('click', onClick);
 refs.infCheck.addEventListener('change', onCheckBoxChange);
 
-
-function handleScroll(e) {
-    const scrollHeight = refs.main.scrollHeight;
-    const scrollTop = refs.main.scrollTop;
-    const clientHeight = refs.main.clientHeight;
-    const calculationError = 5;
-    
-    if (scrollTop + clientHeight + calculationError >= scrollHeight) {
-        e.preventDefault();
-        pixabay.page++;
-        getImages();
-    }
-}
-
-
 function onSubmit(e) {
     e.preventDefault();
     cleanGallery();
+    preLaunchPrep();
+
+    if (refs.input.value.trim() === '') {
+        Notify.failure('Search query cannot be empty');
+        return;
+    }
 
     pixabay.query = refs.input.value;
     pixabay.page = 1;
@@ -61,18 +51,26 @@ function onClick(e) {
     getImages();
 }
 
-async function getImages() {
-    try {
 
-        if (!refs.endMessage.classList.contains('gallery__message--hidden')) {
-            hideEndMessage();
-        }
-
-        if (!refs.buttonMore.classList.contains('gallery__btn-more--hidden')) {
-            hideMoreBtn();
-        }
+function onCheckBoxChange() {
+    
+    if (refs.infCheck.checked) {
+        setAltColorTheme();
+        addScrollListener();
+        hideMoreBtn();
+        return;
+    }
+    cancelAltColorTheme();
+    removeScrollListener();
+    if (pixabay.isNewPageExist()) {
         
+        showMoreBtn();
+    }
+}
 
+
+async function getImages() {
+    try {      
         const data = await pixabay.fetchImages();
         if (pixabay.page === 1) {
             showCountResults(pixabay.totalHits);
@@ -107,24 +105,6 @@ async function getImages() {
         handleError(error)
     }
 }
-
-
-function onCheckBoxChange() {
-    
-    if (refs.infCheck.checked) {
-        setAltColorTheme();
-        addScrollListener();
-        hideMoreBtn();
-        return;
-    }
-    cancelAltColorTheme();
-    removeScrollListener();
-    if (pixabay.isNewPageExist()) {
-        
-        showMoreBtn();
-    }
-}
-
 
 function smoothScroll() {
     const { height: cardHeight } = refs.gallery.firstElementChild.getBoundingClientRect();
@@ -177,6 +157,19 @@ function handleError(err) {
     console.log('Error caught: ' + err);
 }
 
+function handleScroll(e) {
+    const scrollHeight = refs.main.scrollHeight;
+    const scrollTop = refs.main.scrollTop;
+    const clientHeight = refs.main.clientHeight;
+    const calculationError = 5;
+    
+    if (scrollTop + clientHeight + calculationError >= scrollHeight) {
+        e.preventDefault();
+        pixabay.page++;
+        getImages();
+    }
+}
+
 function addScrollListener() {
     refs.main.addEventListener('scroll', handleScroll);
 }
@@ -193,4 +186,13 @@ function setAltColorTheme(){
 function cancelAltColorTheme(){
     refs.header.classList.remove('header--js');
     refs.gallery.classList.remove('gallery--js');
+}
+
+function preLaunchPrep() {
+    if (!refs.endMessage.classList.contains('gallery__message--hidden')) {
+        hideEndMessage();
+    }
+    if (!refs.buttonMore.classList.contains('gallery__btn-more--hidden')) {
+        hideMoreBtn();
+    }
 }
