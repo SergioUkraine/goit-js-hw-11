@@ -5,10 +5,11 @@
 
     class PixabayAPI {
 
-        constructor({ query, page, numberPerPage }) {
+        constructor({ query, page=5, numberPerPage, totalHits=0}) {
             this._query = query;
             this._page = page;
             this._numberPerPage = numberPerPage;
+            this._totalHits = totalHits;
         }
         
         get query() {
@@ -34,6 +35,14 @@
         set numberPerPage(value) {
             this._numberPerPage = value;
         }
+        
+        get totalHits() {
+            return this._totalHits;
+        }
+
+        set totalHits(value) {
+            this._totalHits = value;
+        }
 
 
         async fetchImages() {
@@ -41,6 +50,7 @@
             const url = `${API_URL}?key=${API_KEY}` + parameters;
             try {
                 const response = await axios.get(url);
+                this.totalHits = response.data.totalHits;
                 return response.data;
             } catch (error) {
                 console.log(error);
@@ -81,7 +91,7 @@
                 </div>`
         }
 
-        isNewPageExist(totalNumber) {
-            return (totalNumber - (this.page * this._numberPerPage)) > 0;
+        isNewPageExist() {
+            return (this.totalHits - (this.page * this.numberPerPage)) > 0;
         }
     }
