@@ -70,7 +70,8 @@ function onCheckBoxChange() {
 
 
 async function getImages() {
-    try {      
+    try {
+        showLoader();
         const data = await pixabay.fetchImages();
         if (pixabay.page === 1) {
             showCountResults(pixabay.totalHits);
@@ -100,6 +101,7 @@ async function getImages() {
             showEndMessage();
             hideMoreBtn();
         }
+        hideLoader();
 
     } catch (error) {
         handleError(error)
@@ -132,6 +134,14 @@ function showEndMessage() {
 
 function hideEndMessage() {
     refs.endMessage.classList.add('gallery__message--hidden');
+}
+
+function showLoader() {
+    refs.loader.classList.remove('loader--hidden');
+}
+
+function hideLoader() {
+    refs.loader.classList.add('loader--hidden');
 }
 
 

@@ -8,5 +8,6 @@ export default function getRefs() {
         gallery: document.querySelector('.gallery'),
         buttonMore: document.querySelector('[name="moreButton"]'),
         endMessage: document.querySelector('.gallery__message'),
+        loader: document.querySelector('.loader'),
     }
 }
